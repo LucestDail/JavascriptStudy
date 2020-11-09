@@ -9,6 +9,7 @@
 <body>
     <script>
         var count = 0;
+        var correct = 0;
 
         function getNumber() {
             return Math.floor(Math.random() * 1000) % 10;
@@ -19,20 +20,22 @@
             return op[Math.floor(Math.random() * op.length)];
         }
         while (true) {
-
-            var str = getNumber() + getOp() + getNumber();
-            var ans = prompt(str + "의 정답을 입력하세요, 종료(9999)");
-            if(ans === 9999){
+            var str = getNumber() + getOP() + getNumber();
+            var ans = prompt(str + "의 정답을 입력하세요, 종료(9999)", 0);
+            ans = parseInt(ans);
+            if (ans === 9999) {
+                document.write(count + " 문제 중 " + correct + " 문제 맞추셨습니다.")
                 break;
             }
+            count++;
             var chk = eval(str);
-            if (res != ans) {
-                document.write("입력한 값은 " + ans + "입니다.");
-                document.write("<font color='red' size='5'> 틀렸습니다.</font>");
-                document.write(str + "=" + chk + "입니다.");
+            if (chk != ans) {
+                document.write("입력한 값은 " + ans + "입니다.<br>");
+                document.write("<font color='red' size='5'> 틀렸습니다.</font><br>");
+                document.write(str + "=" + chk + "입니다.<br>");
             } else {
-                document.write("<font color='blue' size = '7'> 정답입니다.</font>");
-                count++;
+                document.write("<font color='blue' size = '7'> 정답입니다.</font><br>");
+                correct++;
             }
         }
     </script>

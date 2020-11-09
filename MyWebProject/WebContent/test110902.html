@@ -5,84 +5,76 @@
     <meta charset="utf-8">
     <title>201109 Test2</title>
     <style type="text/css">
-        h3 {
-            margin-top: 0;
-            margin-left: 100px;
+        #tr1 {
+            text-align: center;
             font-weight: 400;
-            margin-bottom: 0;
         }
 
-        * {
+        #tr2 {
+            text-align: center;
             font-weight: 900;
         }
 
-        div {
-            font-weight: 1000;
-        }
-
-        #numberApple {
-            font-weight: 900;
-        }
-
-        #totalapplediv {
-            font-weight: 900;
-            margin-left: 12px;
-        }
-
-        #totalAppleCount {
-            margin-left: 30px;
-
-        }
-
-        #resultbasketdiv {
-            font-weight: 900;
-            margin-left: 5px;
-        }
-
-        #totalBasketCount {
-            margin-left: 15px;
-            width: 200px;
-        }
-
-        #selectoptiondiv {
-            font-weight: 900;
-
-        }
-        #calBasket{
-            font-weight: 400;
+        #submitb {
+            width: 278px;
         }
     </style>
+    <script type="text/javascript">
+        function calcapple() {
+            var basket = document.f.selection.value;
+            var input = document.f.input.value;
+            document.f.output.value = Math.ceil(input / basket);
+        }
+    </script>
 </head>
 
 <body>
-    <h3>바구니수 계산하기</h3>
-    바구니당 사과 갯수
-    <select name="f">
-        <option value="5">5개</option>
-        <option value="10">10개</option>
-        <option value="15">15개</option>
-        <option value="20">20개</option>
-    </select>
-    <br>
-    사과의 총갯수
-    <input type="text" id="totalAppleCount" style="width:200px;">
-    <br>
-    <form name="submitForm">
-        <button type="submit" id="calBasket" style="width: 330px;" onclick="calc()">
-            바구니수 계산하기
-        </button>
+    <form name="f" onsubmit="return false;">
+        <table>
+            <tr id="tr1">
+                <td colspan="2">
+                    바구니수 계산하기
+                </td>
+            </tr>
+            <tr>
+                <td id="tr2">
+                    바구니당 사과 갯수
+                </td>
+                <td>
+                    <select name="selection">
+                        <option value="5">5개</option>
+                        <option value="10">10개</option>
+                        <option value="15">15개</option>
+                        <option value="20">20개</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td id="tr2">
+                    사과의 총 갯수
+                </td>
+                <td>
+                    <input type="text" name="input">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <form>
+                        <input type="submit" name="submitb" value="바구니수 계산하기" onclick="calcapple()">
+                    </form>
+
+                </td>
+            </tr>
+            <tr>
+                <td id="tr2">
+                    필요한 바구니수
+                </td>
+                <td>
+                    <input type="text" name="output" disabled>
+                </td>
+            </tr>
+        </table>
     </form>
-    필요한 바구니수
-    <input type="text" id="totalBasketCount" disabled>
-    <br>
-    <script type="text/javascript">
-        function calc() {
-            var selectOption = parseInt(document.f.value);
-            var applenumber = parseInt(document.totalAppleCount.value);
-            var resultValue = Math.ceil(applenumber / selectOption);
-            document.totalBasketCount.value = resultValue;
-        }
-    </script>
 </body>
 
 </html>
