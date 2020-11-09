@@ -17,3 +17,4 @@ MyWebProject/.settings/org.eclipse.wst.common.component
 *.name
 MyWebProject/.project
 /.metadata/
+.project
