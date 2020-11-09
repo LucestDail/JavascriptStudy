@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>201109 Test1</title>
+</head>
+
+<body>
+    <script>
+        var count = 0;
+        var curMoney = 0;
+        const goodStatements = "저출을 많이 하셨습니다. 잘하셨습니다.";
+        const badStatements = "좀더 많이 하세요.";
+        const endStatements = "저축이 만료되었습니다.";
+        while (curMoney < 100) {
+            count++;
+            inputMoney = parseInt(Math.random() * 10) + 1;
+            if (inputMoney >= 6) {
+                alert(goodStatements);
+                document.write(count + ". " + goodStatements + ":" + inputMoney + "만원, 잔액:" + curMoney + "<br>");
+            }else{
+                alert(badStatements);
+                document.write(count + ". " + badStatements + ":" + inputMoney + "만원, 잔액:" + curMoney + "<br>");
+            }
+            curMoney += inputMoney;
+        }
+        document.write(endStatements + "잔액:"+curMoney)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> image selector</title>
+    <script type = "text/javascript">
+        function drawimg(sel, img){
+            img.src = "img/" + sel.value;
+        }
+    </script>
+</head>
+
+<body>
+    <form name="f">
+        <table>
+            <tr>
+                <td>
+                    <select name="s" onchange="drawimg(this, document.img)">
+                        <option value="1.png">image 1</option>
+                        <option value="2.png">image 2</option>
+                        <option value="3.png">image 3</option>
+                        <option value="4.png">image 4</option>
+                    </select>
+                </td>
+                <td>
+                    <img name="img" src="img/1.png" width="300" height="300">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

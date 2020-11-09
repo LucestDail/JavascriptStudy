@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>201109 Test2</title>
+    <style type="text/css">
+        h3 {
+            margin-top: 0;
+            margin-left: 100px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        * {
+            font-weight: 900;
+        }
+
+        div {
+            font-weight: 1000;
+        }
+
+        #numberApple {
+            font-weight: 900;
+        }
+
+        #totalapplediv {
+            font-weight: 900;
+            margin-left: 12px;
+        }
+
+        #totalAppleCount {
+            margin-left: 30px;
+
+        }
+
+        #resultbasketdiv {
+            font-weight: 900;
+            margin-left: 5px;
+        }
+
+        #totalBasketCount {
+            margin-left: 15px;
+            width: 200px;
+        }
+
+        #selectoptiondiv {
+            font-weight: 900;
+
+        }
+        #calBasket{
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>바구니수 계산하기</h3>
+    바구니당 사과 갯수
+    <select name="f">
+        <option value="5">5개</option>
+        <option value="10">10개</option>
+        <option value="15">15개</option>
+        <option value="20">20개</option>
+    </select>
+    <br>
+    사과의 총갯수
+    <input type="text" id="totalAppleCount" style="width:200px;">
+    <br>
+    <form name="submitForm">
+        <button type="submit" id="calBasket" style="width: 330px;" onclick="calc()">
+            바구니수 계산하기
+        </button>
+    </form>
+    필요한 바구니수
+    <input type="text" id="totalBasketCount" disabled>
+    <br>
+    <script type="text/javascript">
+        function calc() {
+            var selectOption = parseInt(document.f.value);
+            var applenumber = parseInt(document.totalAppleCount.value);
+            var resultValue = Math.ceil(applenumber / selectOption);
+            document.totalBasketCount.value = resultValue;
+        }
+    </script>
+</body>
+
+</html>

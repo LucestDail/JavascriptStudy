@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>WindowsObjectExample1</title>
+</head>
+<body>
+<h1>WindowsObjectExample 1</h1>
+<form name = "f">
+	<input type = "radio" name = "dbox" onclick = "this.form.echo.value = window.alert('alert message call')">alert message call<br>
+	<input type = "radio" name = "dbox" onclick = "this.form.echo.value = window.confirm('confirm message call')">confirm message call<br>
+	<input type = "radio" name = "dbox" onclick = "this.form.echo.value = window.prompt('prompt message call')">prompt message call<br>
+	<input type = "text" name = "echo">
+</form>
+</body>
+</html>

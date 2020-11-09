@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exam3</title>
+        <style type = "text/css">
+            input
+            {
+                text-align: right;    
+            }
+        </style>
+        <script type = "text/javascript">
+            function numcalc(){
+                inputValue1 = parseInt(document.forms[0].n1.value);
+                inputValue2 = parseInt(document.forms[0].n2.value);
+                var result = 0;
+                console.log(document.forms[0].op.value);
+                if(document.forms[0].op.value === '+'){
+                    result = inputValue1 + inputValue2;
+                }else if(document.forms[0].op.value === "-"){
+                    result = inputValue1 - inputValue2;
+                }else if(document.forms[0].op.value === "*"){
+                    result = inputValue1 * inputValue2;
+                }else if(document.forms[0].op.value === "/"){
+                    result = inputValue1 / inputValue2;
+                }else if(document.forms[0].op.value === "%"){
+                    result = inputValue1 % inputValue2
+                }
+                document.f.result.value = result;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Exam4 : input 2 value, sum values as output</h1><br>
+        <form name = "f">
+            <input type = "text" name = "n1" size = "5">
+            <select name = "op">
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+                <option>%</option>
+            </select>
+            <input type = "text" name = "n2" size = "5"> = 
+            <input type = "text" name = "result" size = "5">
+        <input type = "button" value = "checkResult" onclick="numcalc()"><br>
+        </form>
+    </body>
+</html>
