@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Descendant selector</title>
+<style type = "text/css">
+	#header
+	h1{
+		color : red;
+	}
+	#header > h1{
+		color :pink;
+	}
+	#header,h1{
+		color:blue;
+	}
+	div{
+		background:yellow;
+	}
+	#header
+	#nav{
+	background:green;
+	}
+	
+	h1.title
+	{
+		background:blue;
+	}
+	h1#content{
+	font-size:20px;
+	}
+
+</style>
+</head>
+<body>
+<div id = "header">
+	<h1 class = "title"> h1 class = "title" tag</h1>
+	<div id = "nav">
+		<h1> div id = "nav" descendant tag h1</h1>
+	</div>
+	<p>#header descendant tag p
+</div>
+<h1 id = "content"> body descendant tag h1</h1>
+<p> body descendant tag p
+</body>
+</html>

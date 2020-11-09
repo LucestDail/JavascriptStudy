@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form testing</title>
+<script type = "text/javascript">
+	function copyvalue(){
+		document.f1.getElementById("num2").value = document.f1.getElementById("num1").value;
+	}
+
+	function sumAll(){
+		target = document.getElementById("num").value;
+		allTotal = 0;
+		evenTotal = 0;
+		oddTotal = 0;
+		for(var i = 0; i<= target; i++){
+			if(i % 2 == 0){
+				evenTotal += i;
+			}else{
+				oddTotal += i;
+			}
+			allTotal += i;
+		}
+		document.getElementById("sum").value = allTotal;
+		document.getElementById("evensum").value = evenTotal;
+		document.getElementById("oddsum").value = oddTotal;
+	}
+
+</script>
+</head>
+<body>
+<form name = "f1">
+<h1> copy input data</h1><br>
+<input type = "text" name="num1">
+<input type = "text" name = "num2">
+<input type = "button" value = "copy" onclick = "copyvalue()"><br>
+</form>
+<h1> calculate input data</h1><br>
+<input type = "text" id = "num">
+<input type = "button" value = "totalValue" onclick = "sumAll()"><br>
+total sum : <input type = "text" id = "sum"><br>
+even sum : <input type = "text" id = "evensum"><br>
+odd sum : <input type = "text" id = "oddsum"><br>
+</body>
+</html>

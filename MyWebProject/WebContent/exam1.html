@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type = "text/javascript">
+	function copyvalue(){
+		document.getElementById("num2").value = document.getElementById("num1").value;
+	}
+
+	function sumAll(){
+		target = document.getElementById("num").value;
+		allTotal = 0;
+		evenTotal = 0;
+		oddTotal = 0;
+		for(var i = 0; i<= target; i++){
+			if(i % 2 == 0){
+				evenTotal += i;
+			}else{
+				oddTotal += i;
+			}
+			allTotal += i;
+		}
+		document.getElementById("sum").value = allTotal;
+		document.getElementById("evensum").value = evenTotal;
+		document.getElementById("oddsum").value = oddTotal;
+	}
+
+</script>
+</head>
+<body>
+<h1> copy input data</h1><br>
+<input type = "text" id="num1">
+<input type = "text" id = "num2">
+<input type = "button" value = "copy" onclick = "copyvalue()"><br>
+<h1> calculate input data</h1><br>
+<input type = "text" id = "num">
+<input type = "button" value = "totalValue" onclick = "sumAll()"><br>
+total sum : <input type = "text" id = "sum"><br>
+even sum : <input type = "text" id = "evensum"><br>
+odd sum : <input type = "text" id = "oddsum"><br>
+</body>
+</html>

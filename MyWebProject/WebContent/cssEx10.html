@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Z-index</title>
+<style type = "text/css">
+	div{
+		width:200px;
+		height:200px;
+		border:1px solid black;
+	}
+	
+	.p0{
+		z-index:100;
+		background-color:pink;
+		cursor:crosshair;
+	}
+
+	.p1{
+		z-index:1;
+		position:fixed;
+		top:10pt;
+		right:0pt;
+		background-color:yellow;
+		cursor:crosshair;
+	}
+	.p2{
+		z-index:4;
+		position: relative;
+		top:100pt;
+		left:10pt;
+		background-color:gray;
+		cursor:pointer;
+	}
+	.p3{
+		z-index:2;
+		position:absolute;
+		bottom:20pt;
+		right:100pt;
+		background-color:blue;
+		cursor:move;
+	}
+	.p4{
+		z-index:3;
+		position:fixed;
+		bottom:10pt;
+		right:100pt;
+		background-color:red;
+		cursor:wait;
+	}
+</style>
+</head>
+<body>
+<div sytle = "position:absolute; left:0px; top:0px; width:500px; height:700px;">
+	<div class = "p0">p0 divide</div>
+	<div class = "p1">p1 divide</div>
+	<div class = "p2">p2 divide</div>
+	<div class = "p3">p3 divide</div>
+	<div class = "p4">p4 divide</div>
+</div>
+</body>
+</html>
