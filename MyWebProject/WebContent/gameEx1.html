@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> 20201110 game example</title>
+    <script type="text/javascript">
+        function nextRandomInteger(limit){
+            return Math.round(Math.random() * limit);
+        }
+        
+        function randomSpeed(maxSpeed){
+            return Math.random() * maxSpeed - Math.random() * maxSpeed;
+        }
+        var canvasWidth = 700;
+        var canvasHeight = 500;
+        var total = 10;
+        function MovingText(){
+            this.x = nextRandomInteger(canvasWidth);
+            this.y = nextRandomInteger(canvasHeight);
+            this.vX = randomSpeed(2);
+            this.vY = randomSpeed(2);
+            this.body = document.createElement("h1");
+            this.body.innerHTML = "A";
+            //속성 등록
+            this.body.setAttribute("style","background-color:white");
+            this.body.style.position = "absolute";
+            var text = this.body;
+            //이벤트 핸들러 : 클릭되는 경우 호출되는 메소드
+            this.body.onclick = function(){ // 리스너에 등록한다 라고 표현!
+                --total;
+                alert("남은 문자수 : " + total);
+                text.innerHTML = "B";
+            }
+            document.body.appendChild(this.body);
+        }
+        // prototype : MovingText 객체에 메소드 구현하는 키워드 move() 메소드 기능 구현
+        MovingText.prototype.move = function(){
+            if(this.body.innerHTML == 'B') return;
+            if(this.x < 0 || this.x > canvasWidth){
+                this.vX *= -1;
+            }
+            if(this.y < 0 || this.y > canvasHeight){
+                this.vY *= -1;
+            }
+            this.x += this.vX;
+            this.y += this.vY;
+            this.body.style.left = this.x + "px";
+            this.body.style.top = this.y + "px";
+        }
+        window.onload = function(){
+            var MovingTexts = [];
+            for(var i = 0; i < 10; i++){
+                MovingTexts.push(new MovingText());
+            }
+            var game = setInterval(function(){
+                for(var i in MovingTexts){
+                    if(total < 4){
+                        alert("게임 종료");
+                        clearInterval(game);
+                        return;
+                    }
+                    MovingTexts[i].move();
+                }
+            },1000/60);
+        }
+    </script>
+    </head>
+    <body>
+    
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> 20201110 15:04 open Example 1</title>
+    <script type="text/javascript">
+        var nw;
+
+        function open_win() {
+            nw = open("", "open", "width=600, height=200, menubar=no, top=200, left=200");
+            nw.document.write("새로운 윈도우입니다. <br>");
+            nw.document.write("openex1.html 페이지의 open 함수로 열린 창입니다.<br>");
+        }
+
+        function open_win2() {
+            nw = open("inputex1.html", "open", "width=600, height=200, menubar=no, top=200, left=200");
+            nw.onload = function(){
+                nw.document.f.id.value = 'aaa';
+            }
+        }
+
+        function close_win() {
+            nw.close();
+            close();
+        }
+    </script>
+</head>
+
+<body>
+    <a href="javascript:open_win()"> 새창 열기</a>
+    <a href="javascript:open_win2()"> inputEx1.html 페이지 열기</a>
+    <a href="javascript:close_win()">새창 닫기</a>
+    <form name="f" method="post" onsubmit="return checkinput(this)">
+            아이디 : <input type="text" name="id"><br>
+            비밀번호 : <input type="password" name="pw"><br>
+            <input type="submit" value="로그인">
+        </form>
+</body>
+
+</html>

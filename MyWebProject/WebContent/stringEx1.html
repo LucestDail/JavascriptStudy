@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>20201110 14:38 String Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            a = new String("Client-side javascript guide");
+            b = 1.3;
+            document.write("문자열 a : " + a + ", 문자열 b : " + b + "<br>");
+            document.write("a.charAt(5) : " + a.charAt(5) + "<br>");
+            document.write("a.indexOf('s') : " + a.indexOf('s') + "<br>");
+            document.write("a.lastIndexOf('s') : " + a.lastIndexOf('s') + "<br>");
+            //부분 문자열
+            document.write("a.slice(17) : " + a.slice(17) + "<br>");
+            document.write("a.substr(17) : " + a.substr(17) + "<br>");
+            document.write("a.substring(17) : " + a.substring(17) + "<br>");
+            document.write("a.substr(1,7) : " + a.substr(1,7) + "<br>");
+            document.write("a.substring(1,7) : " + a.substring(1,7) + "<br>");
+            document.write("a.length : " + a.length + "<br>");
+            document.write("a.startsWith('C') : " + a.startsWith('C') + "<br>");
+            document.write("a.endsWith('guide') : " + a.endsWith('guide') + "<br>");
+            document.write("a.split(' ') : " + a.split(' ').join("-") + "<br>");
+            var strarr = a.split(' ');
+            for(var i in strarr){
+                document.write("---" + strarr[i] + "<br>")
+            }
+            document.write("strarr.join('-') : " + strarr.join('-')+"<br>");
+        </script>
+    </body>
+</html>

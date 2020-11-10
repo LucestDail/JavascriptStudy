@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>test1</title>
+    <style type="text/css">
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th,
+        td {
+            border: 3px solid gray;
+            text-align: center;
+            padding: 8px;
+        }
+
+        th {
+            background-color: white;
+            color: #111111;
+        }
+
+        td {
+            background-color: white;
+        }
+
+        caption {
+            color: #111111;
+            font-size: 20px;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="button" value="세로출력" onclick="print1()">
+
+    <input type="button" value="가로출력" onclick="print2()">
+
+    <input type="button" value="2단출력" onclick="print3()">
+
+    <div id="gugudan"></div>
+
+    <script type="text/javascript">
+        const GUGUMAX = 80;
+        var gugudanArray = [GUGUMAX];
+        var inputCounter = 0;
+        const gugudan = document.getElementById('gugudan');
+        for (var a = 2; a <= 9; a++) {
+            for (var b = 1; b <= 9; b++) {
+                if (inputCounter % (10) === 0) {
+                    gugudanArray[inputCounter++] = `<h3>${a}단</h3>`;
+                }
+                gugudanArray[inputCounter++] = `${a} * ${b} = ${a*b}`;
+            }
+        }
+        console.log(gugudanArray);
+
+        function print1() {
+            var counter = 0;
+            let gugudanForm = "";
+            let result = "";
+            result += "<table><caption>세로 출력</caption>";
+            for (var i = 0; i < 10; i++) {
+                result += "<tr>"
+                for (var j = 0; j < 8; j++) {
+                    result += "<td>";
+                    curPoint = parseInt(j + "" + i);
+                    console.log(curPoint + ":" + gugudanArray[curPoint]);
+                    result += gugudanArray[curPoint];
+                    result += "</td>";
+                }
+                result += "</tr>";
+            }
+            result += "</table>"
+            console.log(result);
+            gugudan.innerHTML = result;
+        };
+
+
+        function print2() {
+            var counter = 0;
+            let gugudanForm = "";
+            let result = "";
+            result += "<table><caption>가로 출력</caption><tr>";
+            for (var i = 0; i < gugudanArray.length; i++) {
+                if (i % (10) === 0 && i > 0) {
+                    result += "</tr><tr>";
+                }
+                result += "<td>"
+                result += gugudanArray[i];
+                result += "</td>";
+            }
+            result += "</tr></table>"
+            console.log(result);
+            gugudan.innerHTML = result;
+        };
+
+        function print3() {
+            var counter = 0;
+            let gugudanForm = "";
+            let result = "";
+            result += "<table><caption>세로 출력</caption>";
+            for (var i = 0; i < 10; i++) {
+                result += "<tr>"
+                for (var j = 0; j < 4; j++) {
+                    result += "<td>";
+                    curPoint = parseInt(j + "" + i);
+                    console.log(curPoint + ":" + gugudanArray[curPoint]);
+                    result += gugudanArray[curPoint];
+                    result += "</td>";
+                }
+                result += "</tr>";
+            }
+            for (var i = 0; i < 10; i++) {
+                result += "<tr>"
+                for (var j = 4; j < 8; j++) {
+                    result += "<td>";
+                    curPoint = parseInt(j + "" + i);
+                    console.log(curPoint + ":" + gugudanArray[curPoint]);
+                    result += gugudanArray[curPoint];
+                    result += "</td>";
+                }
+                result += "</tr>";
+            }
+            result += "</table>"
+            console.log(result);
+            gugudan.innerHTML = result;
+        };
+    </script>
+
+</body>
+
+</html>

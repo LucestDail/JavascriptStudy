@@ -1,0 +1,38 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <title> 20201110 15:38 input example</title>
+        <script type = "text/javascript">
+            function checkinput(f){
+                if(f.id.value === ''){
+                    alert('아이디를 입력하세요');
+                    f.id.focus();
+                    return false;
+                }
+                if(f.pw.value === ''){
+                    alert('비밀번호를 입력하세요');
+                    f.pw.focus();
+                    return false;
+                }
+                //opener : 현재창을 open 하는 window 객체. openex1.html 페이지
+                opener.document.f.id.value = f.id.value;
+                opener.document.f.pw.value = f.pw.value;
+//                opener.document.getElementById("id").value = f.id.value;
+                self.close();
+                return false;
+            }
+        </script>
+    </head>
+
+    <body>
+        <form name="f" method="post" onsubmit="return checkinput(this)">
+            아이디 : <input type="text" name="id"><br>
+            비밀번호 : <input type="password" name="pw"><br>
+            <input type="submit" value="로그인">
+        </form>
+    </body>
+
+    </html>
+</DOCTYPE>
