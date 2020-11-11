@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> calendar</title>
+    <style type="text/css">
+        table {
+            width: 25%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 3px solid #bcbcbc;
+            text-align: center;
+            padding: 8px;
+        }
+        .redtext{
+            color:red;
+        }
+        .bluetext{
+            color:blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form name="f">
+        <select name="y">
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+        </select>
+        <input type="button" onclick="createCalendarYear()" value="달력생성">
+    </form>
+    <div id="calArea"></div>
+    <script type="text/javascript">
+        function createCalendarYear(){
+            for(var i = 1; i <= 12; i++){
+                createCalendarMonth(i);
+            }
+        }
+        
+        function createCalendarMonth(monthParameter) {
+            let year = parseInt(document.f.y.value);
+            let month = monthParameter;
+            let createCal = document.getElementById("calArea");
+            let targetValue = document.f.y.value;
+            var date = new Date(year, month - 1, 1);
+            let result = "";
+            result += "<table><caption>";
+            result += (year + " 년도 " + month + " 월");
+            result += "</caption><tr><td><h3>일</h3></td><td><h3>월</h3></td><td><h3>화</h3></td><td><h3>수</h3></td><td><h3>목</h3></td><td><h3>금</h3></td><td><h3>토</h3></td></tr><tr>"
+            //숫자 삽입
+            var dayCount = 1;
+            const lastday = new Date(year, month, 0).getDate();
+            let totalCounter = lastday + date.getDay();
+            for (var i = 1; i < totalCounter + 1; i++) {
+                if (i <= date.getDay()) {
+                    result += "<td></td>";
+                } else if (i % 7 == 1) {
+                    result += "<td class = 'redtext'>";
+                    result += dayCount++;
+                    result += "</td>"
+                } else if (i % 7 == 0) {
+                    result += "<td class = 'bluetext'>";
+                    result += dayCount++;
+                    result += "</td>"
+                } else {
+                    result += "<td>";
+                    result += dayCount++;
+                    result += "</td>"
+                }
+                if (i % 7 == 0) {
+                    result += "</tr><tr>"
+                }
+            }
+            result += "</tr>";
+            result += "</table>";
+            createCal.innerHTML += result;
+        }
+    </script>
+
+</body>
+
+</html>

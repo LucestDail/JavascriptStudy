@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> 20201111,11:32 Object Example</title>
+    <script type="text/javascript">
+        function Animal(name) {
+            this.name = name;
+            this.cry = () => {};
+        }
+
+        function Dog(name) {
+            this.base = Animal;
+            this.base(name);
+            this.cry = () => {
+                document.write(this.name + " 멍멍","<br>");
+            }
+        }
+
+        function Cat(name) {
+            this.base = Animal;
+            this.base(name);
+            this.cry = () => {
+                document.write(this.name + " 야옹","<br>");
+            }
+
+        }
+
+        function Bird(name) {
+            this.base = Animal;
+            this.base(name);
+            this.cry = () => {
+                document.write(this.name + " 짹쨱","<br>");
+            }
+
+        }
+        const dog = new Dog("강아지");
+        const cat = new Cat("고양이");
+        const bird = new Bird("새");
+        dog.cry();
+        cat.cry();
+        bird.cry();
+        
+    </script>
+</head>
+
+<body>
+    <pre>
+        Animal 객체
+            name : 문자열
+            cry : 메소드
+            
+        Dog : Animal 상속 받아 cry 메소드 재정의 '멍멍'
+        Cat : Animal 상속 받아 cry 메소드 재정의 '야옹'
+        Bird : Animal 상속 받아 cry 메소드 재정의 '짹짹'
+    </pre>
+
+</body>
+
+</html>

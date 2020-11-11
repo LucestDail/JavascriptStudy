@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> 20201111,12:02 Number Method Example1</title>
+    <script type = "text/javascript">
+        Number.prototype.printComma = function(){
+            var num = this.toString();
+            var output = "";
+            var i = num.length - 3;
+            while(i > 0){
+                output = "," + num.substr(i,3) + output;
+                i -= 3;
+            }
+            output = num.substr(0,3+i) + output;
+            return output;
+        }
+        
+        Number.prototype.printComma2 = function(){
+            var num = this.toString();
+            var pattern = /(-?\d+)(\d{3})/;
+            while(pattern.test(num)){
+                num = num.replace(pattern,"$1,$2");
+            }
+            return num;
+            
+        }
+//        alert((1234567890).printComma());
+        alert((1234567890).printComma2());
+        document.write((1234567890).printComma());
+    </script>
+    </head>
+    <body>
+    <pre>
+        Number 타입을 print 할때 입력된 숫자에 3자리마다 콤마가 출력되도록 하기
+    </pre>
+    
+    </body>
+</html>

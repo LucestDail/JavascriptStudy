@@ -45,11 +45,39 @@
 
     <div id="gugudan"></div>
 
+    <h3> 2 ~ 9 까지의 숫자를 선택하여 해당 단의 구구단을 출력하기(가로)</h3>
+    <form name="f">
+        <select name="s" onchange="printgugudan1()">
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            <option value="6"> 6 </option>
+            <option value="7"> 7 </option>
+            <option value="8"> 8 </option>
+            <option value="9"> 9 </option>
+        </select>
+    </form>
+     <h3> 2 ~ 9 까지의 숫자를 선택하여 해당 단의 구구단을 출력하기(세로)</h3>
+    <form name="f">
+        <select name="s" onchange="printgugudan2()">
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            <option value="6"> 6 </option>
+            <option value="7"> 7 </option>
+            <option value="8"> 8 </option>
+            <option value="9"> 9 </option>
+        </select>
+    </form>
+    <div id = "selectgugudan"></div>
+
     <script type="text/javascript">
         const GUGUMAX = 80;
         var gugudanArray = [GUGUMAX];
         var inputCounter = 0;
-        const gugudan = document.getElementById('gugudan');
+        const gugudan = document.getElementById('selectgugudan');
         for (var a = 2; a <= 9; a++) {
             for (var b = 1; b <= 9; b++) {
                 if (inputCounter % (10) === 0) {
@@ -59,6 +87,35 @@
             }
         }
         console.log(gugudanArray);
+        
+        function printgugudan2(){
+            
+            
+            
+        }
+        
+
+        function printgugudan1() {
+            var counter = 0;
+            let gugudanForm = "";
+            let result = "";
+            let targetValue = document.f.s.value;
+            let startValue = (targetValue-2)*10;
+            let endValue = (targetValue-1)*10;
+            result += "<table><caption>가로 출력</caption><tr>";
+            for (var i = startValue; i < endValue; i++) {
+                if (i % (10) === 0 && i > 0) {
+                    result += "</tr><tr>";
+                }
+                result += "<td>"
+                result += gugudanArray[i];
+                result += "</td>";
+            }
+            result += "</tr></table>"
+            console.log(result);
+            gugudan.innerHTML = result;
+
+        }
 
         function print1() {
             var counter = 0;

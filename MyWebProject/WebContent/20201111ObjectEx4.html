@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> 20201111.11:46, Object Example 4</title>
+    <script type = "text/javascript">
+        class Animal{
+            constructor(name){
+                this.name = name;
+                this.cry = function(){};
+            }
+        }
+        class Dog extends Animal{
+            constructor(name){
+                super(name);
+                this.cry = function(){
+                    document.write(this.name + "멍멍","<br>");
+                }
+            }
+        }
+        class Cat extends Animal{
+            constructor(name){
+                super(name);
+                this.cry = function(){
+                    document.write(this.name + "야옹","<br>");
+                }
+            }
+        }
+        class Bird extends Animal{
+            constructor(name){
+                super(name);
+                this.cry = function(){
+                    document.write(this.name + "짹쨱","<br>");
+                }
+            }
+        }
+        
+        
+        Bird.prototype.fly = function(){
+            document.write(this.name + "날아다닌다<br>");
+        }
+        Bird.prototype.kind = "조류";
+        var dog = new Dog("멍멍이");
+        var cat = new Cat("고양이");
+        var bird = new Bird("잭짹이");
+        dog.cry();
+        cat.cry();
+        bird.cry();
+        bird.fly();
+        document.write(bird.name + "의 분류 : " + bird.kind + "<br>");
+    
+    </script>
+    </head>
+<body>
+    
+    
+    </body>
+</html>
