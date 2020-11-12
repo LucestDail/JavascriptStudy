@@ -18,3 +18,12 @@ MyWebProject/.settings/org.eclipse.wst.common.component
 MyWebProject/.project
 /.metadata/
 .project
+*.MF
+*.component
+*.prefs
+JSPChap5/.classpath
+jspProject/.settings/.jsdtscope
+jspProject/.classpath
+JSPChap5/.settings/.jsdtscope
+JSPChap4/.settings/.jsdtscope
+JSPChap4/.classpath
