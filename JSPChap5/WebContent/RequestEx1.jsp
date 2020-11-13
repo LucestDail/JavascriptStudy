@@ -14,27 +14,44 @@ get 방식 : 톰캣의 경우 server.xml에 포트 8080 설정 부분에서 URIE
 <head>
 <meta charset="UTF-8">
 <title>20201112, 15:41, Request Form Example 1</title>
+<script type = "text/javascript">
+	function inputcheck(f){
+		if(f.name.value == ''){
+			alert("이름을 작성하지 않았습니다.");
+			f.name.focus();
+			return false;
+		}
+		if(f.age.value == ''){
+			alert("나이를 작성하지 않았습니다.");
+			f.age.focus();
+			return false;
+		}
+		return true;
+	}
+
+</script>
 </head>
 <body>
 	<h2>request implicit object : object which saving client request
 		information</h2>
-	<form action="RequestEx1_1.jsp" method="post">
+	<form action="RequestEx1_1.jsp" method="post" onsubmit="return inputcheck(this)">
 	Name : <input type="text" name="name"><br> 
 	Age : <input type="text" name="age"><br>
 	Gender :
 	<input type="radio" name="gender" value="1">Male
 	<input type="radio" name="gender" value="2">Female<br>
 	Hobby : 
-	<input type="checkbox" name="hobby" value="cook">
-	cook <input type="checkbox" name="hobby" value="travel">travel
-	<input type="checkbox" name="hobby" value="baseball">baseball
-	<input type="checkbox" name="hobby" value="soccer">soccer
-	<input type="checkbox" name="hobby" value="reading">reading <br>
+	<input type="checkbox" name="hobby" value="요리">요리
+	<input type="checkbox" name="hobby" value="여행">여행
+	<input type="checkbox" name="hobby" value="야구">야구
+	<input type="checkbox" name="hobby" value="축구">축구
+	<input type="checkbox" name="hobby" value="독서">독서 <br>
 	birth : <select name="year">
 			<% for(int i = 1990; i<2001;i++){ %>
 			<option><%=i %></option>
 			<%} %>
-		</select><br> <input type="submit" value="submit">
+		</select><br>
+		<input type="submit" value="submit">
 	</form>
 </body>
 </html>
