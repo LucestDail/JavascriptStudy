@@ -1,3 +1,5 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,6 +16,16 @@ db에 등록 -> int cnt = stmt.executeUpdate("insert ......")
 <title>201116, 15:07, jdbc testing source code</title>
 </head>
 <body>
+<%
+//드라이버 설정
+Class.forName("org.mariadb.jdbc.Driver");
+
+//Connection 생성
+Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/classdb","uroot","");
+
+
+
+%>
 
 </body>
 </html>
