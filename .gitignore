@@ -27,3 +27,6 @@ jspProject/.classpath
 JSPChap5/.settings/.jsdtscope
 JSPChap4/.settings/.jsdtscope
 JSPChap4/.classpath
+/bin/
+.settings/.jsdtscope
+.classpath
