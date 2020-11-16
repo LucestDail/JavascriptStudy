@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -22,9 +24,15 @@ Class.forName("org.mariadb.jdbc.Driver");
 
 //Connection 생성
 Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/classdb","uroot","");
-
-
-
+//SQL query 전달 객체 생성
+Statement stmt = conn.createStatement();
+//SQL query 구문 실행
+ResultSet rs = stmt.executeQuery("select * from emp");
+while(rs.next()){
+%>
+<%=rs.getString(1)%>,<%=rs.getString(2) %>,<%=rs.getString(3) %>,<%=rs.getString(4) %><br>
+<%
+}
 %>
 
 </body>
