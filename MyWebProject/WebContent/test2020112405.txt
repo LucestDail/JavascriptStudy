@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test2020112405</title>
+</head>
+<body>
+    <script>
+        var inputValue = prompt("추가로 저금할 금액을 입력하세요");
+        if((parseInt(inputValue) + 90) > 100){
+            document.write("100만원 초과 참잘했어요");
+        }else{
+            document.write("아쉽습니다 노력하세요");
+        }
+    </script>
+    
+</body>
+</html>

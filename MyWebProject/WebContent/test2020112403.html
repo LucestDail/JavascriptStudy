@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test2020112403</title>
+</head>
+<body>
+    <script>
+        for(var i = 1; i <= 10; i++){
+            var thisitem = document.createElement('div');
+            if(i % 2 == 0){
+                thisitem.setAttribute('style', 'background-color:red;');
+            }else if(i % 3 == 0){
+                thisitem.setAttribute('style', 'background-color:green;');
+            }else{
+                 thisitem.setAttribute('style', 'background-color:green;');
+            }
+            document.body.appendChild(thisitem);
+        }
+    </script>
+</body>
+</html>
